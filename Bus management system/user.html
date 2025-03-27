@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      background-image: url("https://thumbs.dreamstime.com/b/digital-representation-bus-highlighting-technology-urban-transportation-systems-futuristic-bus-design-displayed-using-354964563.jpg");
+      background-repeat: no-repeat; /* Ensure the image does not repeat */
+      background-size: cover; /* Cover the entire screen */
+      background-position: center; /* Center the image */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+   
+      margin: 0;
+    }
+    .login-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 30%;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0056b3;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>User Login</h1>
+    <form id="userLoginForm">
+      <input type="text" id="userUsername" placeholder="Username" required>
+      <input type="password" id="userPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="userLoginError" style="color: red; display: none;">Invalid credentials!</p>
+  </div>
+  <script>
+    const userCredentials = { username: "user", password: "user123" };
+    document.getElementById("userLoginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("userUsername").value;
+      const password = document.getElementById("userPassword").value;
+      if (username === userCredentials.username && password === userCredentials.password) {
+        window.location.href = "bus-management.html"; // Redirect to Bus Management System
+      } else {
+        document.getElementById("userLoginError").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

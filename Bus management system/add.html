@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      background-image: url("https://thumbs.dreamstime.com/b/digital-representation-bus-highlighting-technology-urban-transportation-systems-futuristic-bus-design-displayed-using-354964563.jpg");
+      background-repeat: no-repeat; /* Ensure the image does not repeat */
+      background-size: cover; /* Cover the entire screen */
+      background-position: center; /* Center the image */
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 350px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0056b3;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #0056b3;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003d82;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bus Management</h1>
+    <form id="busForm">
+      <input type="text" id="vehicleNumber" placeholder="Vehicle Number (KA only)" required>
+      <input type="text" id="route" placeholder="Route" required>
+      <input type="text" id="departure" placeholder="Departure" required>
+      <input type="text" id="destination" placeholder="Destination" required>
+      <input type="text" id="currentLocation" placeholder="Current Location" required>
+      <input type="time" id="departureTimings" placeholder="Departure Timings" required>
+      <button type="submit">Add Bus</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("busForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get input values
+      const vehicleNumber = document.getElementById("vehicleNumber").value;
+
+      // Check if vehicle number starts with "KA" (Karnataka)
+      if (!vehicleNumber.startsWith("KA")) {
+        alert("Vehicle number must belong to Karnataka (start with 'KA').");
+        return;
+      }
+
+      // You can add logic here to send the data to a server or perform another action
+      alert("Bus successfully added!");
+      
+      // Clear form inputs
+      document.getElementById("busForm").reset();
+    });
+  </script>
+</body>
+</html>

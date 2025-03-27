@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      background-image: url("https://thumbs.dreamstime.com/b/digital-representation-bus-highlighting-technology-urban-transportation-systems-futuristic-bus-design-displayed-using-354964563.jpg");
+      background-repeat: no-repeat; /* Ensure the image does not repeat */
+      background-size: cover; /* Cover the entire screen */
+      background-position: center; /* Center the image */
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 350px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #0056b3;
+      margin-bottom: 20px;
+    }
+    input {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #0056b3;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px auto;
+    }
+    button:hover {
+      background-color: #003d82;
+    }
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Update Bus Details</h1>
+    <form id="updateForm">
+      <input type="text" id="vehicleNumber" placeholder="Vehicle Number (KA only)" required>
+      <input type="text" id="route" placeholder="New Route" required>
+      <input type="text" id="departure" placeholder="New Departure" required>
+      <input type="text" id="destination" placeholder="New Destination" required>
+      <input type="text" id="currentLocation" placeholder="New Current Location" required>
+      <input type="time" id="departureTimings" placeholder="New Departure Timings" required>
+      <button type="submit">Update Bus</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    document.getElementById("updateForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get input values
+      const vehicleNumber = document.getElementById("vehicleNumber").value;
+      const route = document.getElementById("route").value;
+      const departure = document.getElementById("departure").value;
+      const destination = document.getElementById("destination").value;
+      const currentLocation = document.getElementById("currentLocation").value;
+      const departureTimings = document.getElementById("departureTimings").value;
+
+      // Validation: Ensure the vehicle number starts with "KA"
+      if (!vehicleNumber.startsWith("KA")) {
+        document.getElementById("message").textContent = "Error: Vehicle number must belong to Karnataka (start with 'KA').";
+        return;
+      }
+
+      // Simulate updating the data (This is where you integrate with a database)
+      const successMessage = `Bus with Vehicle Number "${vehicleNumber}" has been successfully updated.
+        Route: ${route}, Departure: ${departure}, Destination: ${destination}, Current Location: ${currentLocation}, Departure Timings: ${departureTimings}.`;
+      
+      // Display success message
+      document.getElementById("message").textContent = successMessage;
+
+      // Clear form inputs
+      document.getElementById("updateForm").reset();
+    });
+  </script>
+</body>
+</html>
